@@ -8,15 +8,8 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
-  late TabController _tabController;
+class _HomeScreenState extends State<HomeScreen> {
   String _selectedTimeRange = 'Day';
-
-  @override
-  void initState() {
-    super.initState();
-    _tabController = TabController(length: 4, vsync: this);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -194,8 +187,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                 ),
                 DropdownButton<String>(
                   value: _selectedTimeRange,
-                  items: ['Day', 'Week', 'Month', 'Year']
-                      .map((String value) {
+                  items: ['Day', 'Week', 'Month', 'Year'].map((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
                       child: Text(value),
@@ -218,8 +210,10 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                 LineChartData(
                   gridData: FlGridData(show: false),
                   titlesData: FlTitlesData(
-                    rightTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
-                    topTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
+                    rightTitles:
+                        AxisTitles(sideTitles: SideTitles(showTitles: false)),
+                    topTitles:
+                        AxisTitles(sideTitles: SideTitles(showTitles: false)),
                   ),
                   borderData: FlBorderData(show: false),
                   lineBarsData: [
@@ -239,7 +233,10 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                       dotData: FlDotData(show: false),
                       belowBarData: BarAreaData(
                         show: true,
-                        color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
+                        color: Theme.of(context)
+                            .colorScheme
+                            .primary
+                            .withOpacity(0.1),
                       ),
                     ),
                   ],

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
   static const royalBlue = Color(0xFF4169E1);
@@ -9,16 +9,17 @@ class AppTheme {
     useMaterial3: true,
     colorScheme: ColorScheme.light(
       primary: royalBlue,
-      secondary: royalBlue.withOpacity(0.8),
+      secondary: royalBlue.withAlpha(204), // 0.8 opacity
       surface: white,
-      background: Colors.grey[50]!,
+      surfaceVariant: Colors.grey[50]!,
     ),
     navigationBarTheme: NavigationBarThemeData(
       backgroundColor: white,
-      indicatorColor: royalBlue.withOpacity(0.1),
-      labelTextStyle: MaterialStateProperty.resolveWith(
+      indicatorColor: royalBlue.withAlpha(26), // 0.1 opacity
+      labelTextStyle: WidgetStateProperty.resolveWith(
         (states) => TextStyle(
-          color: states.contains(MaterialState.selected) ? royalBlue : Colors.grey,
+          color:
+              states.contains(WidgetState.selected) ? royalBlue : Colors.grey,
           fontSize: 12,
         ),
       ),
